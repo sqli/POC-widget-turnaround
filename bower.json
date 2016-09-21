@@ -1,0 +1,20 @@
+{
+  "name": "poc-widget-turnaround",
+  "version": "0.0.1",
+  "private": true,
+  "authors": [
+    "Robin Coma Delperier <rcomadelperier@sqli.com>",
+    "Damien Guérin <dguerin@sqli.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sqli/POC-widget-turnaround.git"
+  },
+  "description": "",
+  "dependencies": {
+
+  },
+  "resolutions": {
+
+  }
+}
