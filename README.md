@@ -2,7 +2,7 @@
 
 ## Demo page
 
-[Github pages](https://sqli.github.io/POC-widget-turnaround/SWAN/index.html)
+[Github pages](https://sqli.github.io/POC-widget-turnaround/SWAN/)
 
 ## Getting started
     - npm install
