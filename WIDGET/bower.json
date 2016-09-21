@@ -4,12 +4,15 @@
   "private": true,
   "authors": [
     "Robin Coma Delperier <rcomadelperier@sqli.com>",
-    "Damien Gu�rin <dguerin@sqli.com>"
+    "Damien Guerin <dguerin@sqli.com>"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/sqli/POC-widget-turnaround.git"
   },
   "description": "",
-  "dependencies": {}
+  "dependencies": {
+    "firebase": "^3.4.0",
+    "jquery": "^3.1.0"
+  }
 }

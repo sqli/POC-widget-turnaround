@@ -18,14 +18,5 @@ target/
 #logs
 *.log
 
-# Gulp Bower Node
-node_modules
-dist
-.tmp
-.sass-cache
-app/bower_components
-test/bower_components
-app/style.css
-
-# Reports
-reports
+lib
+.bowerrc
