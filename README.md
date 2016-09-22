@@ -6,7 +6,7 @@
 
 ## Getting started
     - npm install
-    - gulp serve
+    - gulp serve 
 
 ## Tasks
     - gulp serve:dist (serve the dist pages to test before deploy)
