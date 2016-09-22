@@ -6,11 +6,28 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Widget</title>
-
+		<link href="lib/betty/css/bootstrap.css" rel="stylesheet">
     </head>
-    <body>
-		<div id="messages"></div>
-		<input type="text" placeholder="message" id="message"><button id="addBtn">Add</button>
+    <body class="container">
+		<div class="header" class="row">
+				<div class="title col-xs-8">
+					<i class="icon-af icon-af-B-digital-avionausol"></i>
+					<div class="text"><span class="turnaround">TURNAROUND</span><br/><span class="embarquement">FONCTION EMBARQUEMENT</span></div>
+				</div> 
+				<div class="actions text-right">
+					<div>
+						<button class="btn-msg">0</button><button class="btn-alert">0</button>
+						<i class="btn-close icon-af icon-af-A-basic-remove11"></i>
+					</div>
+				</div>
+				
+			</div>
+			<div class="detail">
+				<div class="messages"></div>
+				<input type="text" placeholder="message" class="message"><button class="btn-submit">Add</button>
+			</div>
+		
+		
 		<script src="lib/firebase/firebase.js"></script>
 		<script src="lib/jquery/dist/jquery.js"></script>
         <script src="main.js"></script>

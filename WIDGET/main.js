@@ -34,18 +34,28 @@
 	
 	firebase.database().ref('messages/').on('value', function(snapshot) {
 		snapshot.forEach(function(snap) {
-			$("#messages").append('<p>'+snap.val().text+'</p>');
+			$(".messages").append('<p>'+snap.val().text+'</p>');
 			console.log(snap.val().text);
 		});
 	});
 	
-	$('#addBtn').on('click', function() {
-		if ($('#message').val()) {		
+	$('.btn-submit').on('click', function() {
+		if ($('message').val()) {		
 			var newPostKey = firebase.database().ref('messages/').push().key;
 			
 			var updates = {};
-			updates[newPostKey] = {text:$('#message').val()};
+			updates[newPostKey] = {text:$('.message').val()};
 			firebase.database().ref('messages/').update(updates);
 		}
+	});
+	
+	$('.btn-alert').on('click', function() {
+		$('.detail').show();
+		$('.container').addClass('opened');
+	});
+	
+	$('.btn-close').on('click', function() {
+		$('.container').removeClass('opened');
+		$('.detail').hide();
 	});
 })();

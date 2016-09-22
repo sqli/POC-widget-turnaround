@@ -1,4 +1,116 @@
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/RobotoCondensed-Regular-webfont.eot');
+    src: url('../fonts/RobotoCondensed-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/RobotoCondensed-Regular-webfont.woff') format('woff'),
+         url('../fonts/RobotoCondensed-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/RobotoCondensed-Regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+button {
+	outline: none;
+}
+
 html, body{
     width: 100%;
-    background-color: #ffffff;
+    background-color: transparent;
+	margin: 0px;
+	font-family: 'robotoregular';
+}
+
+.title {
+	padding: 10px;
+}
+
+.btn-msg, .btn-alert {
+	margin-top: 10px;
+}
+
+.header {
+	border-bottom-style: dashed;
+    border-bottom-width: 1px;
+    border-bottom-color: #d0d1d3;
+}
+
+.title .embarquement {
+	font-size:10px;
+	position: absolute;
+	margin-top: -5px;
+	color: #f00f00;
+}
+.title .turnaround {
+	font-size: 20px;
+}
+
+.container {
+	padding: 0px;
+	background-color: transparent;
+}
+.container.opened {
+	background-color: white;
+	overflow-x: hidden; /* For Opera */
+	-webkit-box-shadow:
+		#656565 2px 2px 2px 2px;
+	-moz-box-shadow:
+		#656565 2px 2px 2px 2px;
+	box-shadow:
+		 #656565 2px 2px 2px 2px;
+}
+
+.btn-msg {
+    background-color: #11b3e5;
+    border-width: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+	color: white;
+	width: 30px;
+    height: 30px;
+}
+
+.btn-alert {
+    background-color: #f00f00;
+    border-width: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+	color: white;
+	width: 30px; 
+    height: 30px;
+}
+
+.detail {
+	display:none;
+}
+
+.btn-close {
+	width: 30px;
+	visibility: hidden;
+	height: 45px;
+    border-left-style: dashed;
+    border-left-width: 1px;
+    border-left-color: #d0d1d3;
+	padding-top: 15px;
+    padding-right: 5px;
+}
+
+.container.opened .btn-close {
+	visibility: visible;
+}
+
+.header .icon-af-B-digital-avionausol {
+	font-size:24px; 
+	float: left;
+}
+
+.header .title {
+	display:none
+}
+
+.title .text {
+	padding-left: 45px;
+}
+.container.opened  .header .title {
+	display:block
 }
