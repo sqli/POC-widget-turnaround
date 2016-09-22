@@ -41,9 +41,7 @@
             iFrame.style.top = '0px';
             iFrame.style.right = '10px';
             iFrame.style.overflow = 'hidden';
-            iFrame.style.border = '1px solid rgb(189, 189, 189)';
-            iFrame.style.borderTop = 'none';
-            iFrame.style.boxShadow = 'rgba(189, 189, 189, 0.5) 10px 10px 5px 0px';
+            iFrame.style.border = '0px';
             document.body.appendChild(iFrame);
         };
         this.resize = function () {
