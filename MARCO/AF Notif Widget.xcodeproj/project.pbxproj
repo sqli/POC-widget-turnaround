@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D59F9431D915AA7003FC0AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59F9421D915AA7003FC0AB /* AppDelegate.swift */; };
+		6D59F9451D915AA7003FC0AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59F9441D915AA7003FC0AB /* ViewController.swift */; };
+		6D59F9481D915AA7003FC0AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D59F9461D915AA7003FC0AB /* Main.storyboard */; };
+		6D59F94A1D915AA7003FC0AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D59F9491D915AA7003FC0AB /* Assets.xcassets */; };
+		6D59F94D1D915AA7003FC0AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D59F94B1D915AA7003FC0AB /* LaunchScreen.storyboard */; };
+		6D60070D1D9199EB007B7CE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D60070C1D9199EB007B7CE4 /* GoogleService-Info.plist */; };
+		C026208D1B32F96A474A8244 /* Pods_AF_Notif_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23486036A98779A97527F0F2 /* Pods_AF_Notif_Widget.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		23486036A98779A97527F0F2 /* Pods_AF_Notif_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AF_Notif_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		573FE1A3E909B033885B7476 /* Pods-AF Notif Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AF Notif Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-AF Notif Widget/Pods-AF Notif Widget.release.xcconfig"; sourceTree = "<group>"; };
+		6D59F93F1D915AA7003FC0AB /* AF Notif Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AF Notif Widget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D59F9421D915AA7003FC0AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6D59F9441D915AA7003FC0AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6D59F9471D915AA7003FC0AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D59F9491D915AA7003FC0AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D59F94C1D915AA7003FC0AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6D59F94E1D915AA7003FC0AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D59F9541D916149003FC0AB /* AF Notif Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AF Notif Widget.entitlements"; sourceTree = "<group>"; };
+		6D60070C1D9199EB007B7CE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		834BB8988B5049DA1B04A62A /* Pods-AF Notif Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AF Notif Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AF Notif Widget/Pods-AF Notif Widget.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6D59F93C1D915AA6003FC0AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C026208D1B32F96A474A8244 /* Pods_AF_Notif_Widget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B5C68F339EF6A64CA8BC500 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				834BB8988B5049DA1B04A62A /* Pods-AF Notif Widget.debug.xcconfig */,
+				573FE1A3E909B033885B7476 /* Pods-AF Notif Widget.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6D59F9361D915AA6003FC0AB = {
+			isa = PBXGroup;
+			children = (
+				6D59F9411D915AA7003FC0AB /* AF Notif Widget */,
+				6D59F9401D915AA7003FC0AB /* Products */,
+				4B5C68F339EF6A64CA8BC500 /* Pods */,
+				C48D3E43704BB8295A165E68 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6D59F9401D915AA7003FC0AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D59F93F1D915AA7003FC0AB /* AF Notif Widget.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6D59F9411D915AA7003FC0AB /* AF Notif Widget */ = {
+			isa = PBXGroup;
+			children = (
+				6D60070C1D9199EB007B7CE4 /* GoogleService-Info.plist */,
+				6D59F9541D916149003FC0AB /* AF Notif Widget.entitlements */,
+				6D59F9421D915AA7003FC0AB /* AppDelegate.swift */,
+				6D59F9441D915AA7003FC0AB /* ViewController.swift */,
+				6D59F9461D915AA7003FC0AB /* Main.storyboard */,
+				6D59F9491D915AA7003FC0AB /* Assets.xcassets */,
+				6D59F94B1D915AA7003FC0AB /* LaunchScreen.storyboard */,
+				6D59F94E1D915AA7003FC0AB /* Info.plist */,
+			);
+			path = "AF Notif Widget";
+			sourceTree = "<group>";
+		};
+		C48D3E43704BB8295A165E68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23486036A98779A97527F0F2 /* Pods_AF_Notif_Widget.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6D59F93E1D915AA6003FC0AB /* AF Notif Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D59F9511D915AA7003FC0AB /* Build configuration list for PBXNativeTarget "AF Notif Widget" */;
+			buildPhases = (
+				FE90597D24693EB51CF96846 /* [CP] Check Pods Manifest.lock */,
+				6D59F93B1D915AA6003FC0AB /* Sources */,
+				6D59F93C1D915AA6003FC0AB /* Frameworks */,
+				6D59F93D1D915AA6003FC0AB /* Resources */,
+				60F2C875CE6804BD2E109CDB /* [CP] Embed Pods Frameworks */,
+				E8D2689D16D40313CB72771E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AF Notif Widget";
+			productName = "AF Notif Widget";
+			productReference = 6D59F93F1D915AA7003FC0AB /* AF Notif Widget.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6D59F9371D915AA6003FC0AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Damien;
+				TargetAttributes = {
+					6D59F93E1D915AA6003FC0AB = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 69LNKJEHP6;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 6D59F93A1D915AA6003FC0AB /* Build configuration list for PBXProject "AF Notif Widget" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6D59F9361D915AA6003FC0AB;
+			productRefGroup = 6D59F9401D915AA7003FC0AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6D59F93E1D915AA6003FC0AB /* AF Notif Widget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6D59F93D1D915AA6003FC0AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D59F94D1D915AA7003FC0AB /* LaunchScreen.storyboard in Resources */,
+				6D60070D1D9199EB007B7CE4 /* GoogleService-Info.plist in Resources */,
+				6D59F94A1D915AA7003FC0AB /* Assets.xcassets in Resources */,
+				6D59F9481D915AA7003FC0AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60F2C875CE6804BD2E109CDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AF Notif Widget/Pods-AF Notif Widget-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8D2689D16D40313CB72771E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AF Notif Widget/Pods-AF Notif Widget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE90597D24693EB51CF96846 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D59F93B1D915AA6003FC0AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D59F9451D915AA7003FC0AB /* ViewController.swift in Sources */,
+				6D59F9431D915AA7003FC0AB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6D59F9461D915AA7003FC0AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D59F9471D915AA7003FC0AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6D59F94B1D915AA7003FC0AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D59F94C1D915AA7003FC0AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6D59F94F1D915AA7003FC0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		6D59F9501D915AA7003FC0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6D59F9521D915AA7003FC0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 834BB8988B5049DA1B04A62A /* Pods-AF Notif Widget.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "AF Notif Widget/AF Notif Widget.entitlements";
+				DEVELOPMENT_TEAM = 69LNKJEHP6;
+				INFOPLIST_FILE = "AF Notif Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sqli.AF-Notif-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6D59F9531D915AA7003FC0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 573FE1A3E909B033885B7476 /* Pods-AF Notif Widget.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "AF Notif Widget/AF Notif Widget.entitlements";
+				DEVELOPMENT_TEAM = 69LNKJEHP6;
+				INFOPLIST_FILE = "AF Notif Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sqli.AF-Notif-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6D59F93A1D915AA6003FC0AB /* Build configuration list for PBXProject "AF Notif Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D59F94F1D915AA7003FC0AB /* Debug */,
+				6D59F9501D915AA7003FC0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D59F9511D915AA7003FC0AB /* Build configuration list for PBXNativeTarget "AF Notif Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D59F9521D915AA7003FC0AB /* Debug */,
+				6D59F9531D915AA7003FC0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6D59F9371D915AA6003FC0AB /* Project object */;
+}
