@@ -90,7 +90,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
         self.webV.loadRequest(NSURLRequest(url: NSURL(string: "https://sqli.github.io/POC-widget-turnaround/WIDGET/index.html?application=MARCO") as! URL) as URLRequest)
     }
-    
+
     func closeAction(sender: UIButton!) {
         self.buttonClose.isHidden=true
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: {
