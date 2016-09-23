@@ -9,30 +9,45 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController, UIWebViewDelegate  {
+class ViewController: UIViewController, UIWebViewDelegate {
 
     var messagesViewed = [String]()
     var messagesNotViewed = [String]()
-    var button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    var buttonAlert = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
+    var buttonMsg = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
+    var buttonClose = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
     var webV=UIWebView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: view.bounds.height-20))
         backgroundImage.image = UIImage(named: "MARCO")
         self.view.insertSubview(backgroundImage, at: 0)
         
         let ref = FIRDatabase.database().reference(withPath: "messages")
         
-        self.button.frame.origin=CGPoint(x: view.bounds.maxX-button.frame.width-10, y: 20)
-        self.button.layer.cornerRadius = 0.5 * button.bounds.size.width
-        self.button.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
-        self.button.clipsToBounds=true
-        self.button.backgroundColor = UIColor.init(red:250/255, green: 69/255, blue: 85/255, alpha: 1)
-        self.button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        self.button.isHidden=true;
+        self.buttonAlert.frame.origin=CGPoint(x: view.bounds.maxX-buttonAlert.frame.width-40, y: 25)
+        self.buttonAlert.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
+        self.buttonAlert.clipsToBounds=true
+        self.buttonAlert.backgroundColor = UIColor.init(red:250/255, green: 69/255, blue: 85/255, alpha: 1)
+        self.buttonAlert.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        self.buttonAlert.setTitle("0", for: .normal)
+        let path = UIBezierPath(roundedRect:self.buttonAlert.bounds, byRoundingCorners:[.topRight, .bottomRight], cornerRadii: CGSize(width: 10,height: 10))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        self.buttonAlert.layer.mask = maskLayer
+        
+        self.buttonMsg.frame.origin=CGPoint(x: view.bounds.maxX-(buttonMsg.frame.width*2)-40, y: 25)
+        self.buttonMsg.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
+        self.buttonMsg.clipsToBounds=true
+        self.buttonMsg.backgroundColor = UIColor.init(red:17/255, green: 179/255, blue: 229/255, alpha: 1)
+        self.buttonMsg.setTitle("0", for: .normal)
+        let path2 = UIBezierPath(roundedRect:self.buttonMsg.bounds, byRoundingCorners:[.topLeft, .bottomLeft], cornerRadii: CGSize(width: 10,height: 10))
+        let maskLayer2 = CAShapeLayer()
+        maskLayer2.path = path2.cgPath
+        self.buttonMsg.layer.mask = maskLayer2
         
         // Read data and react to changes
         ref.observeSingleEvent(of: .value, with: { snapshot in
@@ -52,35 +67,49 @@ class ViewController: UIViewController, UIWebViewDelegate  {
                     }
                 }
                 if (self.messagesNotViewed.count > 0) {
-                    self.button.setTitle(String(self.messagesNotViewed.count), for: .normal)
-                    self.button.isHidden=false;
-                } else {
-                    self.button.isHidden=true;
+                    self.buttonAlert.setTitle(String(self.messagesNotViewed.count), for: .normal)
                 }
             })
         })
-        self.webV = UIWebView(frame: CGRect(x: view.bounds.maxX, y: 0, width: view.bounds.width/2, height: view.bounds.height))
-        self.webV = UIWebView(frame: CGRect(x: view.bounds.maxX, y: 0, width: view.bounds.width/2, height: view.bounds.height))
+        self.webV = UIWebView(frame: CGRect(x: view.bounds.maxX, y: 20, width: view.bounds.width/2, height: view.bounds.height))
         
         self.webV.delegate = self;
-        self.view.addSubview(button)
-        let viewTwo = UIView(frame: CGRect(x:0, y:50, width: UIScreen.main.bounds.size.width, height: 150))
-        viewTwo.backgroundColor = UIColor.black
-        self.view.addSubview(webV)
         
+        self.view.addSubview(webV)
+        self.view.addSubview(buttonMsg)
+        self.view.addSubview(buttonAlert)
+        
+        self.buttonClose.frame.origin=CGPoint(x: view.bounds.maxX-40, y: 25)
+        self.buttonClose.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
+        self.buttonClose.clipsToBounds=true
+        self.buttonClose.setTitle("X", for: .normal)
+        self.buttonClose.setTitleColor(UIColor.black, for: .normal)
+        self.buttonClose.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+        self.buttonClose.isHidden=true
+        self.view.addSubview(buttonClose)
+
         self.webV.loadRequest(NSURLRequest(url: NSURL(string: "https://sqli.github.io/POC-widget-turnaround/WIDGET/index.html?application=MARCO") as! URL) as URLRequest)
     }
     
+    func closeAction(sender: UIButton!) {
+        self.buttonClose.isHidden=true
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: {
+            self.webV.frame=CGRect(x: self.view.bounds.maxX, y: 20, width: self.view.bounds.width/2, height: self.view.bounds.height)
+            }, completion: nil)
+    }
+
     
     func buttonAction(sender: UIButton!) {
         for view in self.messagesNotViewed {
             self.messagesViewed.append(view)
         }
         self.messagesNotViewed = []
-        self.button.isHidden=true;
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: {
-            self.webV.frame=CGRect(x: self.view.bounds.maxX/2, y: 0, width: self.view.bounds.width/2, height: self.view.bounds.height)
-            }, completion: nil)
+            self.webV.frame=CGRect(x: self.view.bounds.maxX/2, y: 20, width: self.view.bounds.width/2, height: self.view.bounds.height)
+            }, completion: { (finished: Bool) -> Void in
+                self.buttonClose.isHidden=false
+                self.buttonAlert.setTitle("0", for: .normal)
+        })
 
     }
 
