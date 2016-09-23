@@ -32,23 +32,21 @@
 
 	
 	
-	firebase.database().ref('messages/').on('value', function(snapshot) {
-		snapshot.forEach(function(snap) {
-            var time=$('<div/>',{class:'col-xs-12 time', html: 'Il y a 8mn - Alerte Nettoyage par A.Dumère (EMB-R)'});
-            var text=$('<div/>',{class:'col-xs-12 text', html: '&laquo;'+snap.val().text+'&raquo;'});
-            var msg=$('<div/>',{class:'col-xs-12 message'});
-            msg.append(time);
-            msg.append(text);
-            $(".messages").append(msg);
-		});
+	firebase.database().ref('messages/').on('child_added', function(snap) {
+        var time=$('<div/>',{class:'col-xs-12 time', html: 'Il y a 8mn - Alerte Nettoyage par A.Dumère (EMB-R)'});
+        var text=$('<div/>',{class:'col-xs-12 text', html: '&laquo;'+snap.val().text+'&raquo;'});
+        var msg=$('<div/>',{class:'col-xs-12 message'});
+        msg.append(time);
+        msg.append(text);
+        $(".messages").append(msg);
 	});
 	
 	$('.btn-submit').on('click', function() {
-		if ($('.message').val()) {
+		if ($('#message').val()) {
 			var newPostKey = firebase.database().ref('messages/').push().key;
 			
 			var updates = {};
-			updates[newPostKey] = {text:$('.message').val()};
+			updates[newPostKey] = {text:$('#message').val()};
 			firebase.database().ref('messages/').update(updates);
 		}
 	});
