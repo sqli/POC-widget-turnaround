@@ -36,7 +36,7 @@
             iFrame.style.height = 0 + 'px';
             iFrame.style.position = 'absolute';
             iFrame.style.top = '0px';
-            iFrame.style.right = '10px';
+            iFrame.style.right = '400px';
             iFrame.style.overflow = 'hidden';
             iFrame.style.border = '0px';
             document.body.appendChild(iFrame);
