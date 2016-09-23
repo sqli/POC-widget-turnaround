@@ -1,6 +1,8 @@
 'use strict';
 (function () {
 
+    var newMsg = 0;
+
     var loadCss = function(applicationName){
         var head  = document.getElementsByTagName('head')[0];
         var link  = document.createElement('link');
@@ -39,8 +41,12 @@
         msg.append(time);
         msg.append(text);
         $(".messages").append(msg);
+        if (!$('.detail').is(":visible")) {
+            newMsg++;
+            $('.btn-alert').text(newMsg);
+        }
 	});
-	
+
 	$('.btn-submit').on('click', function() {
 		if ($('#message').val()) {
 			var newPostKey = firebase.database().ref('messages/').push().key;
@@ -54,6 +60,9 @@
 	$('.btn-alert').on('click', function() {
 		$('.detail').show();
 		$('.container').addClass('opened');
+
+        newMsg = 0;
+        $('.btn-alert').text(newMsg);
 	});
 	
 	$('.btn-close').on('click', function() {
