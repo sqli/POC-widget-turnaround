@@ -6,13 +6,6 @@
 
 .container {
     background-color: white;
-    overflow-x: hidden; /* For Opera */
-    -webkit-box-shadow:
-    #656565 2px 2px 2px 2px;
-    -moz-box-shadow:
-    #656565 2px 2px 2px 2px;
-    box-shadow:
-    #656565 2px 2px 2px 2px;
 }
 
 .detail {

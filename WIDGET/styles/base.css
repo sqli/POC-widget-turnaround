@@ -86,7 +86,11 @@ html, body{
     border-width: 0px;
 }
 
-.messages {
+.space {
+    height:10px
+}
+
+.message {
     background-color: #f0f0f0;
 }
 
