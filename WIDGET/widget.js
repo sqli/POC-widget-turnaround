@@ -7,9 +7,6 @@
             var iFrame = document.getElementById(id);
             return iFrame;
         };
-        var parseParameter = function (attribute) {
-            return JSON.parse(attribute.replace(/'/g, '"'));
-        };
         var getFrameSrc = function () {
             var appletScript = document.getElementById('widget');
             var dataApplication = appletScript.getAttribute('data-application');

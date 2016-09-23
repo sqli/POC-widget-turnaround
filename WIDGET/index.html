@@ -1,35 +1,49 @@
 <!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv="Content-Language" content="en">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>AF Widget</title>
-		<link href="lib/betty/css/bootstrap.css" rel="stylesheet">
-    </head>
-    <body class="container">
-		<div class="header" class="row">
-				<div class="title col-xs-8">
-					<i class="icon-af icon-af-B-digital-avionausol"></i>
-					<div class="text"><span class="turnaround">TURNAROUND</span><br/><span class="embarquement">FONCTION EMBARQUEMENT</span></div>
-				</div> 
-				<div class="actions text-right">
-					<div>
-						<button class="btn-msg">0</button><button class="btn-alert">0</button>
-						<i class="btn-close icon-af icon-af-A-basic-remove11"></i>
-					</div>
-				</div>
-				
-			</div>
-			<div class="detail">
-				<div class="messages"></div>
-				<input type="text" placeholder="message" class="message"><button class="btn-submit">Add</button>
-			</div>
-		
-		
-		<script src="lib/firebase/firebase.js"></script>
-		<script src="lib/jquery/dist/jquery.js"></script>
-        <script src="main.js"></script>
-    </body>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AF Widget</title>
+    <link href="lib/betty/css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="container">
+<div class="header" class="row">
+    <div class="title col-xs-8">
+        <i class="icon-af icon-af-B-digital-avionausol"></i>
+
+        <div class="text"><span class="turnaround">TURNAROUND</span><br/><span class="embarquement">FONCTION EMBARQUEMENT</span>
+        </div>
+    </div>
+    <div class="actions text-right">
+        <div>
+            <button class="btn-msg">0</button><button class="btn-alert">0</button>
+            <i class="btn-close icon-af icon-af-A-basic-remove11"></i>
+        </div>
+    </div>
+</div>
+
+<div class="detail">
+    <div class="messages row"></div>
+    <div class="row">
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="icon-af icon-af-A-basic-warning18"></i></div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                    <div class="input-group-addon btn-submit"><button type="submit" class="btn btn-primary">Send alert</button></div>
+                </div>
+            </div>
+
+            </form>
+    </div>
+</div>
+
+
+<script src="lib/firebase/firebase.js"></script>
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="main.js"></script>
+</body>
 </html>
