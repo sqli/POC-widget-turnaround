@@ -11,50 +11,82 @@ import Firebase
 
 class ViewController: UIViewController, UIWebViewDelegate {
 
+    // Messages viewed
     var messagesViewed = [String]()
+    // Messages not viewed
     var messagesNotViewed = [String]()
+    
+    // Alert button
     var buttonAlert = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 35))
-    var buttonMsg = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 35))
+    // Close button
     var buttonClose = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    // Webview to display widget
     var webV=UIWebView()
+    
+    // Remote Widget URL
+    let WIDGET_URL="https://sqli.github.io/POC-widget-turnaround/WIDGET/index.html?application=MARCO"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        
+        // Loading fake Marco app (with Marco screenshot)
         let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: view.bounds.height-20))
         backgroundImage.image = UIImage(named: "MARCO")
         self.view.insertSubview(backgroundImage, at: 0)
         
+        // Init close button (in large view to make touch action easier)
+        let buttonCloseView=UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         buttonClose.image = UIImage(named: "close")
-        self.view.insertSubview(buttonClose, at: 0)
+        buttonCloseView.insertSubview(buttonClose, at: 0)
+        buttonCloseView.frame.origin=CGPoint(x: view.bounds.maxX-35, y: 20)
+        self.buttonClose.frame.origin=CGPoint(x: 0, y: 15)
+        buttonCloseView.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
+        let tap = UITapGestureRecognizer(target: self, action: #selector(closeAction))
+        buttonCloseView.addGestureRecognizer(tap)
+        buttonCloseView.isUserInteractionEnabled = true
+        self.buttonClose.isHidden=true
         
-        let ref = FIRDatabase.database().reference(withPath: "messages")
-        
+        // Init alert button
         self.buttonAlert.frame.origin=CGPoint(x: view.bounds.maxX-buttonAlert.frame.width-50, y: 25)
         self.buttonAlert.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
         self.buttonAlert.clipsToBounds=true
         self.buttonAlert.backgroundColor = UIColor.init(red:165/255, green: 0/255, blue: 0/255, alpha: 1)
-        self.buttonAlert.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        self.buttonAlert.addTarget(self, action: #selector(openAction), for: .touchUpInside)
         self.buttonAlert.setTitle("0", for: .normal)
         let path = UIBezierPath(roundedRect:self.buttonAlert.bounds, byRoundingCorners:[.topRight, .bottomRight], cornerRadii: CGSize(width: 10,height: 10))
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         self.buttonAlert.layer.mask = maskLayer
         
-        self.buttonMsg.frame.origin=CGPoint(x: view.bounds.maxX-(buttonMsg.frame.width*2)-50, y: 25)
-        self.buttonMsg.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
-        self.buttonMsg.clipsToBounds=true
-        self.buttonMsg.backgroundColor = UIColor.init(red:19/255, green: 144/255, blue: 191/255, alpha: 1)
-        self.buttonMsg.setTitle("0", for: .normal)
-        let path2 = UIBezierPath(roundedRect:self.buttonMsg.bounds, byRoundingCorners:[.topLeft, .bottomLeft], cornerRadii: CGSize(width: 10,height: 10))
+        
+        // Init msg button
+        let buttonMsg = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 35))
+        buttonMsg.frame.origin=CGPoint(x: view.bounds.maxX-(buttonMsg.frame.width*2)-50, y: 25)
+        buttonMsg.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
+        buttonMsg.clipsToBounds=true
+        buttonMsg.backgroundColor = UIColor.init(red:19/255, green: 144/255, blue: 191/255, alpha: 1)
+        buttonMsg.setTitle("0", for: .normal)
+        let path2 = UIBezierPath(roundedRect:buttonMsg.bounds, byRoundingCorners:[.topLeft, .bottomLeft], cornerRadii: CGSize(width: 10,height: 10))
         let maskLayer2 = CAShapeLayer()
         maskLayer2.path = path2.cgPath
-        self.buttonMsg.layer.mask = maskLayer2
+        buttonMsg.layer.mask = maskLayer2
+        
+        // Init webview to display the widget
+        self.webV = UIWebView(frame: CGRect(x: view.bounds.maxX, y: 20, width: view.bounds.width/2, height: view.bounds.height))
+        self.webV.delegate = self;
+        self.webV.layer.borderWidth=1;
+        self.webV.layer.borderColor=UIColor.init(red:175/255, green: 175/255, blue: 175/255, alpha: 1).cgColor;
+        self.webV.loadRequest(NSURLRequest(url: NSURL(string: WIDGET_URL) as! URL) as URLRequest)
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        self.webV.addGestureRecognizer(panGesture)
+        
+        // Init Firebase observers
+        let ref = FIRDatabase.database().reference(withPath: "messages")
         
         // Read data and react to changes
         ref.observeSingleEvent(of: .value, with: { snapshot in
+            // Init messages viewed and not viewed
             self.messagesViewed = []
             self.messagesNotViewed = []
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -75,28 +107,33 @@ class ViewController: UIViewController, UIWebViewDelegate {
                 }
             })
         })
-        self.webV = UIWebView(frame: CGRect(x: view.bounds.maxX, y: 20, width: view.bounds.width/2, height: view.bounds.height))
-        
-        self.webV.delegate = self;
-        self.webV.layer.borderWidth=1;
-        self.webV.layer.borderColor=UIColor.init(red:175/255, green: 175/255, blue: 175/255, alpha: 1).cgColor;
-        
+
+        // Add views in root view
         self.view.addSubview(webV)
         self.view.addSubview(buttonMsg)
         self.view.addSubview(buttonAlert)
-        
-        self.buttonClose.frame.origin=CGPoint(x: view.bounds.maxX-35, y: 35)
-        self.buttonClose.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
-        self.buttonClose.clipsToBounds=true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(closeAction))
-        buttonClose.addGestureRecognizer(tap)
-        buttonClose.isUserInteractionEnabled = true
-        self.buttonClose.isHidden=true
-        self.view.addSubview(buttonClose)
+        self.view.addSubview(buttonCloseView)
 
-        self.webV.loadRequest(NSURLRequest(url: NSURL(string: "https://sqli.github.io/POC-widget-turnaround/WIDGET/index.html?application=MARCO") as! URL) as URLRequest)
     }
 
+    // Manage Webview pan gesture
+    func handlePan(panGesture: UIPanGestureRecognizer) {
+        let translation = panGesture.translation(in: view)
+        panGesture.setTranslation(CGPoint.zero, in:view)
+        if (self.webV.frame.origin.x+translation.x > self.view.bounds.maxX/2 && self.webV.frame.origin.x+translation.x < self.view.bounds.maxX) {
+            self.webV.frame.origin.x=self.webV.frame.origin.x+translation.x;
+        }
+        
+        if panGesture.state == UIGestureRecognizerState.ended {
+            if (self.webV.frame.origin.x > (self.view.bounds.maxX/2+self.view.bounds.maxX/4)) {
+                closeAction(sender: nil)
+            } else {
+                openAction(sender: nil)
+            }
+        }
+    }
+    
+    // Close widget action
     func closeAction(sender: UIButton!) {
         self.buttonClose.isHidden=true
         UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear, animations: {
@@ -108,8 +145,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
           })
     }
 
-    
-    func buttonAction(sender: UIButton!) {
+    // Open widget action
+    func openAction(sender: UIButton!) {
         for view in self.messagesNotViewed {
             self.messagesViewed.append(view)
         }
