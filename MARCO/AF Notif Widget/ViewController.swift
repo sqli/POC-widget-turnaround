@@ -13,8 +13,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     var messagesViewed = [String]()
     var messagesNotViewed = [String]()
-    var buttonAlert = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
-    var buttonMsg = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
+    var buttonAlert = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 35))
+    var buttonMsg = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 35))
     var buttonClose = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
     var webV=UIWebView()
 
@@ -28,10 +28,10 @@ class ViewController: UIViewController, UIWebViewDelegate {
         
         let ref = FIRDatabase.database().reference(withPath: "messages")
         
-        self.buttonAlert.frame.origin=CGPoint(x: view.bounds.maxX-buttonAlert.frame.width-40, y: 25)
+        self.buttonAlert.frame.origin=CGPoint(x: view.bounds.maxX-buttonAlert.frame.width-50, y: 25)
         self.buttonAlert.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
         self.buttonAlert.clipsToBounds=true
-        self.buttonAlert.backgroundColor = UIColor.init(red:250/255, green: 69/255, blue: 85/255, alpha: 1)
+        self.buttonAlert.backgroundColor = UIColor.init(red:165/255, green: 0/255, blue: 0/255, alpha: 1)
         self.buttonAlert.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         self.buttonAlert.setTitle("0", for: .normal)
         let path = UIBezierPath(roundedRect:self.buttonAlert.bounds, byRoundingCorners:[.topRight, .bottomRight], cornerRadii: CGSize(width: 10,height: 10))
@@ -39,10 +39,10 @@ class ViewController: UIViewController, UIWebViewDelegate {
         maskLayer.path = path.cgPath
         self.buttonAlert.layer.mask = maskLayer
         
-        self.buttonMsg.frame.origin=CGPoint(x: view.bounds.maxX-(buttonMsg.frame.width*2)-40, y: 25)
+        self.buttonMsg.frame.origin=CGPoint(x: view.bounds.maxX-(buttonMsg.frame.width*2)-50, y: 25)
         self.buttonMsg.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
         self.buttonMsg.clipsToBounds=true
-        self.buttonMsg.backgroundColor = UIColor.init(red:17/255, green: 179/255, blue: 229/255, alpha: 1)
+        self.buttonMsg.backgroundColor = UIColor.init(red:19/255, green: 144/255, blue: 191/255, alpha: 1)
         self.buttonMsg.setTitle("0", for: .normal)
         let path2 = UIBezierPath(roundedRect:self.buttonMsg.bounds, byRoundingCorners:[.topLeft, .bottomLeft], cornerRadii: CGSize(width: 10,height: 10))
         let maskLayer2 = CAShapeLayer()
@@ -74,6 +74,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
         self.webV = UIWebView(frame: CGRect(x: view.bounds.maxX, y: 20, width: view.bounds.width/2, height: view.bounds.height))
         
         self.webV.delegate = self;
+        self.webV.layer.borderWidth=1;
+        self.webV.layer.borderColor=UIColor.init(red:175/255, green: 175/255, blue: 175/255, alpha: 1).cgColor;
         
         self.view.addSubview(webV)
         self.view.addSubview(buttonMsg)
@@ -83,7 +85,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         self.buttonClose.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
         self.buttonClose.clipsToBounds=true
         self.buttonClose.setTitle("X", for: .normal)
-        self.buttonClose.setTitleColor(UIColor.black, for: .normal)
+        self.buttonClose.setTitleColor(UIColor.init(red:6/255, green: 12/255, blue: 42/255, alpha: 1), for: .normal)
         self.buttonClose.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
         self.buttonClose.isHidden=true
         self.view.addSubview(buttonClose)
