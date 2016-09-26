@@ -35,7 +35,7 @@
 	
 	
 	firebase.database().ref('messages/').on('child_added', function(snap) {
-        var time=$('<div/>',{class:'col-xs-12 time', html: 'Il y a 8mn - Alerte Nettoyage par A.Dumère (EMB-R)'});
+        var time=$('<div/>',{class:'col-xs-12 time', html: '<span>Il y a 8mn - Alerte Nettoyage par A.Dumère (EMB-R)</span>'});
         var text=$('<div/>',{class:'col-xs-12 text', html: '&laquo;'+snap.val().text+'&raquo;'});
         var msg=$('<div/>',{class:'row message'});
         msg.append(time);
