@@ -15,16 +15,20 @@ class ViewController: UIViewController, UIWebViewDelegate {
     var messagesNotViewed = [String]()
     var buttonAlert = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 35))
     var buttonMsg = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 35))
-    var buttonClose = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
+    var buttonClose = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     var webV=UIWebView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
         
         let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: view.bounds.height-20))
         backgroundImage.image = UIImage(named: "MARCO")
         self.view.insertSubview(backgroundImage, at: 0)
+        
+        buttonClose.image = UIImage(named: "close")
+        self.view.insertSubview(buttonClose, at: 0)
         
         let ref = FIRDatabase.database().reference(withPath: "messages")
         
@@ -81,12 +85,12 @@ class ViewController: UIViewController, UIWebViewDelegate {
         self.view.addSubview(buttonMsg)
         self.view.addSubview(buttonAlert)
         
-        self.buttonClose.frame.origin=CGPoint(x: view.bounds.maxX-40, y: 25)
+        self.buttonClose.frame.origin=CGPoint(x: view.bounds.maxX-35, y: 35)
         self.buttonClose.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
         self.buttonClose.clipsToBounds=true
-        self.buttonClose.setTitle("X", for: .normal)
-        self.buttonClose.setTitleColor(UIColor.init(red:6/255, green: 12/255, blue: 42/255, alpha: 1), for: .normal)
-        self.buttonClose.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(closeAction))
+        buttonClose.addGestureRecognizer(tap)
+        buttonClose.isUserInteractionEnabled = true
         self.buttonClose.isHidden=true
         self.view.addSubview(buttonClose)
 
@@ -95,9 +99,13 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     func closeAction(sender: UIButton!) {
         self.buttonClose.isHidden=true
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: {
-            self.webV.frame=CGRect(x: self.view.bounds.maxX, y: 20, width: self.view.bounds.width/2, height: self.view.bounds.height)
-            }, completion: nil)
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear, animations: {
+            self.webV.frame=CGRect(x: self.view.bounds.maxX-20, y: 20, width: self.view.bounds.width/2, height: self.view.bounds.height)
+            }, completion: { (finished: Bool) -> Void in
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+                    self.webV.frame=CGRect(x: self.view.bounds.maxX, y: 20, width: self.view.bounds.width/2, height: self.view.bounds.height)
+                    }, completion: nil)
+          })
     }
 
     
@@ -106,12 +114,15 @@ class ViewController: UIViewController, UIWebViewDelegate {
             self.messagesViewed.append(view)
         }
         self.messagesNotViewed = []
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: {
-            self.webV.frame=CGRect(x: self.view.bounds.maxX/2, y: 20, width: self.view.bounds.width/2, height: self.view.bounds.height)
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear, animations: {
+            self.webV.frame=CGRect(x: self.view.bounds.maxX/2+20, y: 20, width: self.view.bounds.width/2, height: self.view.bounds.height)
             }, completion: { (finished: Bool) -> Void in
-                self.buttonClose.isHidden=false
-                self.buttonAlert.setTitle("0", for: .normal)
-        })
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+                    self.webV.frame=CGRect(x: self.view.bounds.maxX/2, y: 20, width: self.view.bounds.width/2, height: self.view.bounds.height)
+                    }, completion: { (finished: Bool) -> Void in
+                        self.buttonClose.isHidden=false
+                        self.buttonAlert.setTitle("0", for: .normal)
+                })        })
 
     }
 
