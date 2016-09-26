@@ -1,11 +1,12 @@
 .container .header {
-    border-bottom-style: dashed;
+    border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: #d0d1d3;
+    border-bottom-color: #afafaf;
 }
 
 .container {
     background-color: white;
+    color: #060c2a
 }
 
 .detail {
@@ -13,9 +14,32 @@
 }
 
 .header .title {
-    display:block;
+    display: block;
 }
 
 .actions {
     visibility: hidden;
+}
+
+.btn-submit .btn {
+    background-color: #1390bf;
+    border-color: #1390bf;
+}
+
+.messages .message {
+    border-color: #dadada;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.message .time {
+    top: -10px;
+    text-align: center;
+}
+
+.message .time span {
+    background-color: white;
+    padding: 10px;
 }
