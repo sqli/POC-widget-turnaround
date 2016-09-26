@@ -66,7 +66,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
                         }
                     }
                 }
-                if (self.messagesNotViewed.count > 0) {
+                if (self.messagesNotViewed.count > 0 && self.webV.frame.origin.x==self.view.bounds.maxX) {
                     self.buttonAlert.setTitle(String(self.messagesNotViewed.count), for: .normal)
                 }
             })
