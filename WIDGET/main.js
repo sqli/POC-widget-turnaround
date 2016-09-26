@@ -85,6 +85,7 @@
             var updates = {};
             updates[newPostKey] = {text: $('#message').val(), time: new Date().getTime()};
             firebase.database().ref('messages/').update(updates);
+            $('#message').val('');
         }
     });
 
