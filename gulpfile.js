@@ -11,6 +11,7 @@ gulp.task('clean', function () {
 
 gulp.task('dist', ['clean'], function(callback){
 	gulp.src(['SWAN/**/*']).pipe(gulp.dest('dist/SWAN/'));
+	gulp.src(['CN51/**/*']).pipe(gulp.dest('dist/CN51/'));
 	return gulp.src(['WIDGET/**/*']).pipe(gulp.dest('dist/WIDGET/'));
 });
 
@@ -41,7 +42,8 @@ gulp.task('serve:dist', ['dist'], function () {
 gulp.task('serve', ['serve:app'], function () {
 	gulp.watch([
 		'SWAN/**/**',
-		'WIDGET/**/**'
+		'WIDGET/**/**',
+		'CN51/**/**'
 	], function (event) {
 		return gulp.src(event.path).pipe($.connect.reload());
 	});
