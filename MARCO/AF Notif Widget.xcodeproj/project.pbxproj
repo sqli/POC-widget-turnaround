@@ -354,7 +354,7 @@
 				DEVELOPMENT_TEAM = 69LNKJEHP6;
 				INFOPLIST_FILE = "AF Notif Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sqli.AF-Notif-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sqli.MARCO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -369,7 +369,7 @@
 				DEVELOPMENT_TEAM = 69LNKJEHP6;
 				INFOPLIST_FILE = "AF Notif Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sqli.AF-Notif-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sqli.MARCO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
