@@ -1,0 +1,65 @@
+.container .header {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #afafaf;
+}
+
+.container {
+    background-color: white;
+    color: #060c2a
+}
+
+.detail {
+    display: block;
+}
+
+.header .title {
+    display: block;
+}
+
+.actions {
+    visibility: hidden;
+}
+
+.btn-submit .btn {
+    background-color: #1390bf;
+    border-color: #1390bf;
+}
+
+.messages .message {
+    border-color: #dadada;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.message .time {
+    top: -10px;
+    text-align: center;
+}
+
+.message .time span {
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.input-group-addon {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: transparent;
+}
+
+.form-control {
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.btn-primary {
+    border-radius: 30px;
+}
+
+.btn-submit {
+    padding-left: 10px;
+}
